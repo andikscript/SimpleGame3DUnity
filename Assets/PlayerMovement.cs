@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Rigidbody>().velocity = new Vector3(5, 0, 0);
         }
 
+        // untuk menstop 
         if (Input.GetKey("s"))
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
