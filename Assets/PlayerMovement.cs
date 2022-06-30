@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // dipanggil saat pertama kali di running
+    // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
+        
     }
 
-    // dipanggil terus menerus / setiap frame
+    // Update is called once per frame
     void Update()
     {
-        // Input.GetKeyDown : mengambil inputan keyboard dari user
-        if (Input.GetKey("up")) 
+        // GetKeyDown akan menjalankan program setelah key di pencet
+        if (Input.GetKeyDown("space"))
         {
-            // Vector3(x,y,z) : x adalah kanan kiri, y : atas bawah, z = maju mundur
+            // new Vector3(x,y,z) : x adalah kanan kiri, y adalah atas bawah, z adalah maju mundur
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 5, 0);
+        }
+
+        // GetKey akan menjalankan program saat key dipencet
+        if (Input.GetKey("up"))
+        {
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 5);
         }
 
@@ -35,17 +41,9 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Rigidbody>().velocity = new Vector3(5, 0, 0);
         }
 
-        // perbedaan GetKey dan GetKeyDown adalah jika GetKey akan menjalankan program saat key pada keyboard 
-        // di tekan jika GetKeyDown akan menjalankan program saat key selesai di tekan
-        if (Input.GetKeyDown("space"))
-        {
-            GetComponent<Rigidbody>().velocity = new Vector3(0,5,0);
-        }
-
-        // untuk menstop object
         if (Input.GetKey("s"))
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         }
     }
 }
